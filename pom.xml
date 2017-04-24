@@ -1,0 +1,124 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.exercise5</groupId>
+	<artifactId>KeyValueMap</artifactId>
+	<version>1.0.1</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>app</module>
+		<module>model</module>
+		<module>service</module>
+		<module>utility</module>
+	</modules>
+
+	<properties>
+		<projectVersion>1.0.1</projectVersion>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>LATEST</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.exercise5.app</groupId>
+				<artifactId>app-main</artifactId>
+				<version>${projectVersion}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.exercise5.model</groupId>
+				<artifactId>model-key-value</artifactId>
+				<version>${projectVersion}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.exercise5.service</groupId>
+				<artifactId>service-map</artifactId>
+				<version>${projectVersion}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.exercise5.utility</groupId>
+				<artifactId>utility-file-input</artifactId>
+				<version>${projectVersion}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+ 		<finalName>${project.artifactId}</finalName>
+ 		<pluginManagement>
+	 		<plugins>
+	 			<plugin>
+ 					<groupId>org.apache.maven.plugins</groupId>
+ 					<artifactId>maven-dependency-plugin</artifactId>
+ 					<version>3.0.0</version>
+ 					<executions>
+ 						<execution>
+ 							<id>copy-dependencies</id>
+ 							<phase>process-sources</phase>
+ 							<goals>
+ 								<goal>copy-dependencies</goal>
+ 							</goals>
+ 							<configuration>
+ 	  	     					<outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+   		   					</configuration>
+ 						</execution>
+ 					</executions>
+ 				</plugin> 	
+
+	 			<plugin>
+ 					<groupId>org.apache.maven.plugins</groupId>
+ 					<artifactId>maven-jar-plugin</artifactId>
+ 					<version>3.0.2</version>
+ 					<configuration>
+ 						<archive>
+ 							<manifest>
+	 							<addClasspath>true</addClasspath>
+ 								<classpathPrefix>${project.build.finalName}/</classpathPrefix>
+ 								<mainClass>com.exercise5.app.MainFunction</mainClass>
+ 							</manifest>
+ 						</archive>
+	 				</configuration>
+ 				</plugin>
+
+ 				<plugin>
+ 					<groupId>org.apache.maven.plugins</groupId>
+	 				<artifactId>maven-compiler-plugin</artifactId>
+ 					<version>3.6.1</version>
+ 					<configuration>
+ 						<source>1.8</source>
+ 						<target>1.8</target>
+	 				</configuration>
+	 				<executions>
+	 					<execution>
+	 						<id>default-testCompile</id>
+	 						<phase>test-compile</phase>
+	 						<goals>
+	 							<goal>testCompile</goal>
+	 						</goals>
+	 						<configuration>
+	 							<skip>true</skip>
+	 						</configuration>
+	 					</execution>
+	 				</executions>
+ 				</plugin>
+
+ 				<plugin>
+ 					<groupId>org.apache.maven.plugins</groupId>
+ 					<artifactId>maven-surefire-plugin</artifactId>
+ 					<version>2.19.1</version>
+ 					<configuration>
+ 						<skipTests>true</skipTests>
+ 					</configuration>
+ 				</plugin>
+ 			</plugins>
+		</pluginManagement>
+	 </build>		
+</project>

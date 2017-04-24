@@ -1,0 +1,44 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.exercise5</groupId>
+		<artifactId>KeyValueMap</artifactId>
+		<version>1.0.1</version>
+	</parent>
+	
+	<groupId>com.exercise5.app</groupId>
+	<artifactId>app-main</artifactId>
+	<version>1.0.1</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.exercise5.service</groupId>
+			<artifactId>service-map</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+	 	<plugins>
+	 		<plugin>
+ 				<groupId>org.apache.maven.plugins</groupId>
+ 				<artifactId>maven-dependency-plugin</artifactId>
+ 			</plugin> 	
+
+ 			<plugin>
+ 				<groupId>org.apache.maven.plugins</groupId>
+ 				<artifactId>maven-jar-plugin</artifactId>
+ 			</plugin>
+
+ 			<plugin>
+ 				<groupId>org.apache.maven.plugins</groupId>
+ 				<artifactId>maven-compiler-plugin</artifactId>
+ 			</plugin> 
+
+ 			<plugin>
+ 				<groupId>org.apache.maven.plugins</groupId>
+ 				<artifactId>maven-surefire-plugin</artifactId>
+ 			</plugin>			
+ 		</plugins>
+	</build>
+</project>
