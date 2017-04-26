@@ -15,11 +15,11 @@ import java.util.Set;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Collections;
-import com.exercise5.module.Key;
-import com.exercise5.module.Value;
-import com.exercise5.utility.CheckInput;
+import com.exercise5.model.Key;
+import com.exercise5.model.Value;
+import com.exercise5.utility.InputValidationUtil;
 
-public class ManipulateTable {
+public class TableFunctions {
 	public static ArrayList <LinkedHashMap <Key, Value>> editCell(ArrayList <LinkedHashMap <Key, Value>> myTable) {
 		Map <Key, Value> oneRow = new LinkedHashMap <Key, Value>();
 		int rowNumber = myTable.size();
@@ -34,10 +34,10 @@ public class ManipulateTable {
 		do {
 			System.out.println("\nSpecify which cell to update");
 			System.out.print("Specify Row: ");
-			editRow = CheckInput.checkInteger();	
+			editRow = InputValidationUtil.checkInteger();	
 
 			System.out.print("Specify Column: ");
-			editColumn = CheckInput.checkInteger();	
+			editColumn = InputValidationUtil.checkInteger();	
 							
 			if((editRow > rowNumber) || (editColumn > columnNumber)) {
 				System.out.print("\nSpecified Cell is out of bounds.\n");	//prommpt if out of bounds
@@ -71,19 +71,19 @@ public class ManipulateTable {
 				case "1":
 					flag = 1;
 					System.out.print("\nChange Key to: ");
-					key = CheckInput.userInput();
+					key = InputValidationUtil.userInput();
 					break;				
 				case "2":
 					flag = 1;
 					System.out.print("\nChange Value to: ");
-					value = CheckInput.userInput();
+					value = InputValidationUtil.userInput();
 					break;
 				case "3":
 					flag = 1;
 					System.out.print("\nChange Key to:");
-					key = CheckInput.userInput();
+					key = InputValidationUtil.userInput();
 					System.out.print("\nChange Value to: ");
-					value = CheckInput.userInput();
+					value = InputValidationUtil.userInput();
 					break;
 
 				default:
@@ -125,7 +125,7 @@ public class ManipulateTable {
 		String oneCell = new String();
 
 		System.out.print("Input Search Character: ");
-		searchChar = CheckInput.searchInput();
+		searchChar = InputValidationUtil.searchInput();
 
 		for (Map <Key,Value> oneRow : myTable) {
 			Set <Map.Entry<Key, Value>> oneRowSet = oneRow.entrySet();			//gets one Set view
@@ -169,10 +169,10 @@ public class ManipulateTable {
 		for (int i = 0; i < maxColumn; i++) { 
 			System.out.println("For Column " + (i+1));
 			System.out.print("Provide Key: ");
-			key = CheckInput.userInput();
+			key = InputValidationUtil.userInput();
 			
 			System.out.print("Provide Value: ");
-			value = CheckInput.userInput();
+			value = InputValidationUtil.userInput();
 			
 			addedRow.put(new Key(key), new Value(value));
 		}
@@ -192,7 +192,7 @@ public class ManipulateTable {
 		
 		do {
 			System.out.print("Which row to sort? ");
-			editRow = CheckInput.checkInteger();
+			editRow = InputValidationUtil.checkInteger();
 		} while (editRow > myTable.size());
 
 		oneRow = myTable.get(editRow - 1);
@@ -236,10 +236,10 @@ public class ManipulateTable {
 		int column = 0;
 		
 		System.out.print("Input Number of Rows: ");
-		row = CheckInput.checkInteger();
+		row = InputValidationUtil.checkInteger();
 		
 		System.out.print("Input Number of Columns: ");
-		column = CheckInput.checkInteger();
+		column = InputValidationUtil.checkInteger();
 
 		for (int i = 0; i < row; i++) {
 			oneRow = new LinkedHashMap <Key, Value>();
