@@ -1,5 +1,5 @@
 /* 
- * ProcessFile
+ * FileUtil
  * 
  * Handles all reads and writes from and to the specified File
  *
@@ -16,10 +16,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedReader;
 import javax.swing.RowFilter.Entry;
-import com.exercise5.module.Key;
-import com.exercise5.module.Value;
+import com.exercise5.model.Key;
+import com.exercise5.model.Value;
 
-public class ProcessFile {
+public class FileUtil {
 	
 	public static ArrayList <LinkedHashMap <Key, Value>> readFile(String fileName, ArrayList <LinkedHashMap <Key, Value>> myTable) {
 		FileReader inFile = null;
@@ -40,7 +40,7 @@ public class ProcessFile {
 					continue;
 				}			
 			
-				myTable.add(ProcessFile.fillRow(lineOfFile));						//Add the processed line to myTable
+				myTable.add(FileUtil.fillRow(lineOfFile));						//Add the processed line to myTable
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

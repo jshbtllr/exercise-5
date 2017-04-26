@@ -1,5 +1,5 @@
 /*
- * CheckInput
+ * InputValidationUtil
  *
  * Handles all the user input checkings
  *
@@ -8,7 +8,7 @@
 package com.exercise5.utility;
 import java.util.Scanner;
 
-public class CheckInput {												
+public class InputValidationUtil {												
 	public static int checkInteger() {
 		Scanner input = new Scanner(System.in);
 		String inLine = new String();
