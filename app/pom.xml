@@ -8,7 +8,7 @@
 	</parent>
 	
 	<groupId>com.exercise5.app</groupId>
-	<artifactId>app-main</artifactId>
+	<artifactId>app</artifactId>
 	<version>1.0.1</version>
 
 	<dependencies>
