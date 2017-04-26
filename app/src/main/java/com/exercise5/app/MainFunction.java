@@ -10,10 +10,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.io.File;
-import com.exercise5.module.Key;
-import com.exercise5.module.Value;
-import com.exercise5.service.ManipulateTable;
-import com.exercise5.utility.ProcessFile;
+import com.exercise5.model.Key;
+import com.exercise5.model.Value;
+import com.exercise5.service.TableFunctions;
+import com.exercise5.utility.FileUtil;
 
 
 public class MainFunction {
@@ -36,8 +36,8 @@ public class MainFunction {
 			}
 		}		
 		
-		myTable = ProcessFile.readFile(fileName, myTable);							//reads the file stores to myTable
-		ManipulateTable.printTable(myTable);
+		myTable = FileUtil.readFile(fileName, myTable);							//reads the file stores to myTable
+		TableFunctions.printTable(myTable);
 
 		while (exit == 0) {
 			System.out.println("");
@@ -54,30 +54,30 @@ public class MainFunction {
 			System.out.print("Choose corresponding number to choose a Function: ");
 			Scanner menu = new Scanner(System.in);
 			String function = menu.nextLine();	
-			myTable = ProcessFile.readFile(fileName, myTable);								//Constantly reads the file after a function was chosen
+			myTable = FileUtil.readFile(fileName, myTable);								//Constantly reads the file after a function was chosen
 			
 			switch (function) {
 				case "1":												//Search Function	
-					ManipulateTable.searchCell(myTable);
+					TableFunctions.searchCell(myTable);
 					break;
 				case "2":												//Edit Function
-					myTable = ManipulateTable.editCell(myTable);
-					ProcessFile.writeFile(fileName,myTable);
+					myTable = TableFunctions.editCell(myTable);
+					FileUtil.writeFile(fileName,myTable);
 					break;
 				case "3":												//Print Function
-					ManipulateTable.printTable(myTable);
+					TableFunctions.printTable(myTable);
 					break;
 				case "4":												//Reset Function
-					myTable = ManipulateTable.resetTable();
-					ProcessFile.writeFile(fileName,myTable);
+					myTable = TableFunctions.resetTable();
+					FileUtil.writeFile(fileName,myTable);
 					break;
 				case "5":												//Add Row Function
-					myTable = ManipulateTable.addRow(myTable);
-					ProcessFile.writeFile(fileName,myTable);
+					myTable = TableFunctions.addRow(myTable);
+					FileUtil.writeFile(fileName,myTable);
 					break;
 				case "6":												//Sort Row Function
-					myTable = ManipulateTable.sortRow(myTable);
-					ProcessFile.writeFile(fileName,myTable);
+					myTable = TableFunctions.sortRow(myTable);
+					FileUtil.writeFile(fileName,myTable);
 					break;
 				case "7":												//Exit
 					exit = 1;
