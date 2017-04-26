@@ -4,7 +4,7 @@
  * Key Object Creation
  *
  */
-package com.exercise5.module;
+package com.exercise5.model;
 
 public class Key {
 	private String key;

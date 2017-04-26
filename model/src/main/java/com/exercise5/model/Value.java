@@ -4,7 +4,7 @@
  * Value Object Creation
  *
  */
-package com.exercise5.module;
+package com.exercise5.model;
 
 public class Value {
 	private String value;
