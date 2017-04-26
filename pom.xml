@@ -18,7 +18,6 @@
 		<jar-plugin-version>3.0.2</jar-plugin-version>
 		<java-version>1.8</java-version>
 		<compiler-plugin-version>3.6.1</compiler-plugin-version>
-
 	</properties>
 
 	<dependencyManagement>

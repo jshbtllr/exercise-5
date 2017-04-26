@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.exercise5.model</groupId>
-			<artifactId>model-key-value</artifactId>
+			<artifactId>model</artifactId>
 		</dependency>
 
 		<dependency>

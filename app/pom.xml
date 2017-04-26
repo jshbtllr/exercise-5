@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.exercise5.service</groupId>
-			<artifactId>service-map</artifactId>
+			<artifactId>service</artifactId>
 		</dependency>
 	</dependencies>
 

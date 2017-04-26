@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.exercise5.utility</groupId>
-			<artifactId>utility-file-input</artifactId>
+			<artifactId>utility</artifactId>
 		</dependency>
 	</dependencies>
 	
